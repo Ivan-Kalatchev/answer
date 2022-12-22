@@ -134,7 +134,7 @@ backend:
         other: "Промяната на профилната снимка завърши с грешки."
       config:
         read_config_failed:
-          other: "Read config failed"
+          other: "Изчитането на конфигурационни файлове завърши с грешки."
       database:
         connection_failed:
           other: "Връзката с база данни завърши с грешки."
@@ -150,89 +150,89 @@ backend:
   report:
     spam:
       name:
-        other: "Вредна нишка."
+        other: "Вредна публикация."
       desc:
-        other: "Нишката съдържа реклама или вандализъм. Не е свързана с темата."
+        other: "Публикацията съдържа реклама или вандализъм. Не е свързана с темата."
     rude:
       name:
-        other: "rude or abusive"
+        other: "Груба или обидна публикация"
       desc:
-        other: "A reasonable person would find this content inappropriate for respectful discourse."
+        other: "Разумен човек би намерил това съдържание за неуважително или подигравателно."
     duplicate:
       name:
         other: "Дубликат"
       desc:
-        other: "This question has been asked before and already has an answer."
+        other: "Този въпрос е вече задаван."
     not_answer:
       name:
-        other: "not an answer"
+        other: "Не е отговор"
       desc:
-        other: "This was posted as an answer, but it does not attempt to answer the question. It should possibly be an edit, a comment, another question, or deleted altogether."
+        other: "Публикацията беше публикувана като отговор, но не предтавлява опит за отговор на въпроса. Вероятно трябва да се редактира, да бъде пренасочена към друг въпрос или напълно да бъде изтрита."
     not_need:
       name:
-        other: "no longer needed"
+        other: "Старо съдържание"
       desc:
-        other: "This comment is outdated, conversational or not relevant to this post."
+        other: "Този коментар е остарял, разговорен или неподходящ за тази публикация."
     other:
       name:
-        other: "something else"
+        other: "Нещо друго"
       desc:
-        other: "This post requires staff attention for another reason not listed above."
+        other: "Тази публикация изисква внимание на персонала поради друга причина, която не е посочена по-горе."
 
   question:
     close:
       duplicate:
         name:
-          other: "spam"
+          other: "Вредна публикация."
         desc:
-          other: "This question has been asked before and already has an answer."
+          other: "Публикацията съдържа реклама или вандализъм. Не е свързана с темата."
       guideline:
         name:
-          other: "a community-specific reason"
+          other: "Специфична за общността причина"
         desc:
-          other: "This question doesn't meet a community guideline."
+          other: "Този въпрос не отговаря на насоките на общността."
       multiple:
         name:
-          other: "needs details or clarity"
+          other: "Нужни за повече детайли"
         desc:
-          other: "This question currently includes multiple questions in one. It should focus on one problem only."
+          other: "Понастоящем този въпрос включва няколко въпроса в един. Трябва да се съсредоточи само върху един проблем."
       other:
         name:
-          other: "something else"
+          other: "Нещо друго"
         desc:
-          other: "This post requires another reason not listed above."
+          other: "Тази публикация изисква внимание на персонала поради друга причина, която не е посочена по-горе."
 
   notification:
     action:
       update_question:
-        other: "updated question"
+        other: "обновен въпрос"
       answer_the_question:
-        other: "answered question"
+        other: "отговорен въпрос"
       update_answer:
-        other: "updated answer"
+        other: "обновен отговор"
       adopt_answer:
-        other: "accepted answer"
+        other: "приет отговор"
       comment_question:
-        other: "commented question"
+        other: "коментиран въпрос"
       comment_answer:
-        other: "commented answer"
+        other: "коментиран отговор"
       reply_to_you:
-        other: "replied to you"
+        other: "нов отговор към ваша публикация"
       mention_you:
         other: "mentioned you"
       your_question_is_closed:
-        other: "Your question has been closed"
+        other: "Вашият въпрос бе затворен"
       your_question_was_deleted:
-        other: "Your question has been deleted"
+        other: "Вашият въпрос бе премахнат"
       your_answer_was_deleted:
-        other: "Your answer has been deleted"
+        other: "Вашият отговор бе премахнат"
       your_comment_was_deleted:
-        other: "Your comment has been deleted"
+        other: "Вашият коментар бе премахнат"
 
 # The following fields are used for interface presentation(Front-end)
 ui:
   how_to_format:
-    title: How to Format
+    title: Инструкции - Форматиране
     desc: >-
       <ul class="mb-0"><li><p class="mb-2">to make links</p><pre
       class="mb-2"><code>&lt;https://url.com&gt;<br/><br/>[Title](https://url.com)</code></pre></li><li><p
@@ -244,44 +244,44 @@ ui:
       class="mb-2">create code fences with backticks <code>`</code></p><pre
       class="mb-0"><code>```<br/>code here<br/>```</code></pre></li></ul>
   pagination:
-    prev: Prev
-    next: Next
+    prev: Предишна
+    next: Следваща
   page_title:
-    question: Question
-    questions: Questions
-    tag: Tag
-    tags: Tags
+    question: Въпрос
+    questions: Въпроси
+    tag: Етикет
+    tags: Етикети
     tag_wiki: tag wiki
-    edit_tag: Edit Tag
-    ask_a_question: Add Question
-    edit_question: Edit Question
-    edit_answer: Edit Answer
-    search: Search
+    edit_tag: Редакция на етикет
+    ask_a_question: Задаване на въпрос
+    edit_question: Редакция на въпрос
+    edit_answer: Редакция на отговор
+    search: Търсене
     posts_containing: Posts containing
-    settings: Settings
-    notifications: Notifications
-    login: Log In
-    sign_up: Sign Up
+    settings: Настройки
+    notifications: Известия
+    login: Вход
+    sign_up: Регистрация
     account_recovery: Account Recovery
     account_activation: Account Activation
     confirm_email: Confirm Email
     account_suspended: Account Suspended
-    admin: Admin
+    admin: Админстрация
     change_email: Modify Email
     install: Answer Installation
     upgrade: Answer Upgrade
     maintenance: Website Maintenance
-    users: Users
+    users: Потребители
   notifications:
-    title: Notifications
-    inbox: Inbox
-    achievement: Achievements
-    all_read: Mark all as read
-    show_more: Show more
+    title: Известия
+    inbox: Вх. кутия
+    achievement: Постижения
+    all_read: Маркиране на всички като прочетени
+    show_more: Показване на още
   suspended:
-    title: Your Account has been Suspended
-    until_time: "Your account was suspended until {{ time }}."
-    forever: This user was suspended forever.
+    title: Вашият профил бе блокиран
+    until_time: "Вашият профил бе блокиран до {{ time }}."
+    forever: Този потребител е блокиран за непояснен период от време.
     end: You don't meet a community guideline.
   editor:
     blockquote:
@@ -308,30 +308,30 @@ ui:
             msg:
               empty: Code cannot be empty.
           language:
-            label: Language (optional)
+            label: Еизк (по избор)
             placeholder: Automatic detection
-      btn_cancel: Cancel
-      btn_confirm: Add
+      btn_cancel: Отказ
+      btn_confirm: Добавяне
     formula:
-      text: Formula
+      text: ФОрмула
       options:
         inline: Inline formula
         block: Block formula
     heading:
-      text: Heading
+      text: Заглавие
       options:
-        h1: Heading 1
-        h2: Heading 2
-        h3: Heading 3
-        h4: Heading 4
-        h5: Heading 5
-        h6: Heading 6
+        h1: Заглавие 1
+        h2: Заглавие 2
+        h3: Заглавие 3
+        h4: Заглавие 4
+        h5: Заглавие 5
+        h6: Заглавие 6
     help:
-      text: Help
+      text: Помощ
     hr:
       text: Horizontal Rule
     image:
-      text: Image
+      text: Картина
       add_image: Add image
       tab_image: Upload image
       form_image:
@@ -354,8 +354,8 @@ ui:
               empty: Image URL cannot be empty.
           name:
             label: Description (optional)
-      btn_cancel: Cancel
-      btn_confirm: Add
+      btn_cancel: Отказ
+      btn_confirm: Добавяне
       uploading: Uploading
     indent:
       text: Indent
@@ -364,8 +364,8 @@ ui:
     italic:
       text: Emphasis
     link:
-      text: Hyperlink
-      add_link: Add hyperlink
+      text: Хипервръзка
+      add_link: Добавяне на хипервръзка
       form:
         fields:
           url:
@@ -373,20 +373,20 @@ ui:
             msg:
               empty: URL cannot be empty.
           name:
-            label: Description (optional)
-      btn_cancel: Cancel
-      btn_confirm: Add
+            label: Описание (по избор)
+      btn_cancel: Отказ
+      btn_confirm: Добавяне
     ordered_list:
-      text: Numbered List
+      text: Нумериран лист
     unordered_list:
       text: Bulleted List
     table:
-      text: Table
-      heading: Heading
-      cell: Cell
+      text: Таблица
+      heading: Заглавие
+      cell: Клетка
   close_modal:
     title: I am closing this post as...
-    btn_cancel: Cancel
+    btn_cancel: Отказ
     btn_submit: Submit
     remark:
       empty: Cannot be empty.
@@ -398,18 +398,18 @@ ui:
     review_question_title: Review question
     review_answer_title: Review answer
     review_comment_title: Review comment
-    btn_cancel: Cancel
+    btn_cancel: Отказ
     btn_submit: Submit
     remark:
       empty: Cannot be empty.
     msg:
       empty: Please select a reason.
   tag_modal:
-    title: Create new tag
+    title: Създаване на етикет
     form:
       fields:
         display_name:
-          label: Display Name
+          label: Показано име
           msg:
             empty: Display name cannot be empty.
             range: Display name up to 35 characters.
@@ -421,68 +421,68 @@ ui:
             range: URL slug up to 35 characters.
             character: URL slug contains unallowed character set.
         desc:
-          label: Description (optional)
-    btn_cancel: Cancel
+          label: Описание (по избор)
+    btn_cancel: Отказ
     btn_submit: Submit
   tag_info:
-    created_at: Created
-    edited_at: Edited
-    history: History
+    created_at: Създаден
+    edited_at: Редактиран
+    history: История
     synonyms:
-      title: Synonyms
+      title: Синоними
       text: The following tags will be remapped to
       empty: No synonyms found.
       btn_add: Add a synonym
-      btn_edit: Edit
-      btn_save: Save
+      btn_edit: Редакция
+      btn_save: Запис
     synonyms_text: The following tags will be remapped to
     delete:
-      title: Delete this tag
+      title: Изтриване на етикет
       content: >-
         <p>We do not allowed deleting tag with posts.</p><p>Please remove this tag
         from the posts first.</p>
       content2: Are you sure you wish to delete?
       close: Close
   edit_tag:
-    title: Edit Tag
-    default_reason: Edit tag
+    title: Редакция на етикет
+    default_reason: Редакция на етикет
     form:
       fields:
         revision:
           label: Revision
         display_name:
-          label: Display Name
+          label: Показано име
         slug_name:
           label: URL Slug
           info: 'Must use the character set "a-z", "0-9", "+ # - ."'
         desc:
-          label: Description
+          label: Описание
         edit_summary:
           label: Edit Summary
           placeholder: >-
             Briefly explain your changes (corrected spelling, fixed grammar,
             improved formatting)
-    btn_save_edits: Save edits
-    btn_cancel: Cancel
+    btn_save_edits: Запис
+    btn_cancel: Отказ
   dates:
     long_date: MMM D
     long_date_with_year: "MMM D, YYYY"
     long_date_with_time: "MMM D, YYYY [at] HH:mm"
-    now: now
+    now: сега
     x_seconds_ago: "{{count}}s ago"
     x_minutes_ago: "{{count}}m ago"
     x_hours_ago: "{{count}}h ago"
-    hour: hour
-    day: day
+    hour: час
+    day: ден
   comment:
-    btn_add_comment: Add comment
+    btn_add_comment: Добавяне на коментар
     reply_to: Reply to
     btn_reply: Reply
-    btn_edit: Edit
-    btn_delete: Delete
-    btn_flag: Flag
-    btn_save_edits: Save edits
-    btn_cancel: Cancel
+    btn_edit: Редакция
+    btn_delete: Премахване
+    btn_flag: Флаг
+    btn_save_edits: Запис
+    btn_cancel: Отказ
     show_more: Show more comment
     tip_question: >-
       Use comments to ask for more information or suggest improvements. Avoid
@@ -491,33 +491,33 @@ ui:
       Use comments to reply to other users or notify them of changes. If you are
       adding new information, edit your post instead of commenting.
   edit_answer:
-    title: Edit Answer
-    default_reason: Edit answer
+    title: Редакция на отговор
+    default_reason: Редакция на отговор
     form:
       fields:
         revision:
           label: Revision
         answer:
-          label: Answer
+          label: Отговор
         edit_summary:
           label: Edit Summary
           placeholder: >-
             Briefly explain your changes (corrected spelling, fixed grammar,
             improved formatting)
-    btn_save_edits: Save edits
-    btn_cancel: Cancel
+    btn_save_edits: Запис
+    btn_cancel: Отказ
   tags:
-    title: Tags
+    title: Етикети
     sort_buttons:
-      popular: Popular
-      name: Name
-      newest: newest
+      popular: Популярни
+      name: Име
+      newest: Най-нови
     button_follow: Follow
     button_following: Following
-    tag_label: questions
+    tag_label: въпроси
     search_placeholder: Filter by tag name
     no_desc: The tag has no description.
-    more: More
+    more: Повече
   ask:
     title: Add Question
     edit_title: Edit Question
