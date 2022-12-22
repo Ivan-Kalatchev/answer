@@ -30,9 +30,9 @@ backend:
         other: "Частичен достъп свързан с операции късаещи нишки."
 
   email:
-    other: "Email"
+    other: "Имейл"
   password:
-    other: "Password"
+    other: "Парола"
 
   email_or_password_wrong_error: &email_or_password_wrong
     other: "Имейлът и паролата не съответстват"
@@ -102,13 +102,13 @@ backend:
       not_found:
         other: "Етикетът не е намерен."
       recommend_tag_not_found:
-        other: "Recommend Tag is not exist."
+        other: "Пепоръчаният етикет не съществува."
       recommend_tag_enter:
-        other: "Please enter at least one required tag."
+        other: "Нужен е поне един от задължителните етикети."
       not_contain_synonym_tags:
-        other: "Should not contain synonym tags."
+        other: "В нишката не могат да фигурирт синонимни етикети."
       cannot_update:
-        other: "No permission to update."
+        other: "Недостатъчни права за модификация."
       cannot_set_synonym_as_itself:
         other: "You cannot set the synonym of the current tag as itself."
     theme:
