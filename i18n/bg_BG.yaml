@@ -110,7 +110,7 @@ backend:
       cannot_update:
         other: "Недостатъчни права за модификация."
       cannot_set_synonym_as_itself:
-        other: "You cannot set the synonym of the current tag as itself."
+        other: "Не можете да зададете синонима на текущия таг като самия него."
     theme:
       not_found:
         other: "Темата не е намерена."
@@ -118,7 +118,7 @@ backend:
       review_underway:
         other: "Can't edit currently, there is a version in the review queue."
       no_permission:
-        other: "No permission to Revision."
+        other: "В момента не може да се редактира, има версия в опашката за преглед."
     user:
       email_or_password_wrong:
         other: *email_or_password_wrong
@@ -219,7 +219,7 @@ backend:
       reply_to_you:
         other: "нов отговор към ваша публикация"
       mention_you:
-        other: "mentioned you"
+        other: "спомена те"
       your_question_is_closed:
         other: "Вашият въпрос бе затворен"
       your_question_was_deleted:
@@ -234,15 +234,15 @@ ui:
   how_to_format:
     title: Инструкции - Форматиране
     desc: >-
-      <ul class="mb-0"><li><p class="mb-2">to make links</p><pre
+      <ul class="mb-0"><li><p class="mb-2">за създаване на хипервръзки</p><pre
       class="mb-2"><code>&lt;https://url.com&gt;<br/><br/>[Title](https://url.com)</code></pre></li><li><p
-      class="mb-2">put returns between paragraphs</p></li><li><p
+      class="mb-2">Абзац</p></li><li><p
       class="mb-2"><em>_italic_</em> or **<strong>bold</strong>**</p></li><li><p
       class="mb-2">indent code by 4 spaces</p></li><li><p class="mb-2">quote by
       placing <code>&gt;</code> at start of line</p></li><li><p
       class="mb-2">backtick escapes <code>`like _this_`</code></p></li><li><p
       class="mb-2">create code fences with backticks <code>`</code></p><pre
-      class="mb-0"><code>```<br/>code here<br/>```</code></pre></li></ul>
+      class="mb-0"><code>```<br/>програмен код<br/>```</code></pre></li></ul>
   pagination:
     prev: Предишна
     next: Следваща
@@ -251,26 +251,26 @@ ui:
     questions: Въпроси
     tag: Етикет
     tags: Етикети
-    tag_wiki: tag wiki
+    tag_wiki: наръчник за етикети
     edit_tag: Редакция на етикет
     ask_a_question: Задаване на въпрос
     edit_question: Редакция на въпрос
     edit_answer: Редакция на отговор
     search: Търсене
-    posts_containing: Posts containing
+    posts_containing: Публикации съдържащи
     settings: Настройки
     notifications: Известия
     login: Вход
     sign_up: Регистрация
-    account_recovery: Account Recovery
-    account_activation: Account Activation
-    confirm_email: Confirm Email
-    account_suspended: Account Suspended
+    account_recovery: Възстановяване на акаунт
+    account_activation: Активиране на акаунт
+    confirm_email: Потвърждаване на имейл
+    account_suspended: Профилът е спрян
     admin: Админстрация
-    change_email: Modify Email
-    install: Answer Installation
-    upgrade: Answer Upgrade
-    maintenance: Website Maintenance
+    change_email: Редактиране на имейл
+    install: Инсталация на Answer
+    upgrade: Обновяване на Answer
+    maintenance: Поддръжка на уебсайт
     users: Потребители
   notifications:
     title: Известия
@@ -282,22 +282,22 @@ ui:
     title: Вашият профил бе блокиран
     until_time: "Вашият профил бе блокиран до {{ time }}."
     forever: Този потребител е блокиран за непояснен период от време.
-    end: You don't meet a community guideline.
+    end: Не отговаря на обществото.
   editor:
     blockquote:
-      text: Blockquote
+      text: Блоков цитат
     bold:
-      text: Strong
+      text: Получер
     chart:
-      text: Chart
-      flow_chart: Flow chart
-      sequence_diagram: Sequence diagram
-      class_diagram: Class diagram
-      state_diagram: State diagram
+      text: Диаграма
+      flow_chart: Диаграма на потока
+      sequence_diagram: Последователна диаграма
+      class_diagram: Класова диаграма
+      state_diagram: Диаграма на състоянието
       entity_relationship_diagram: Entity relationship diagram
       user_defined_diagram: User defined diagram
-      gantt_chart: Gantt chart
-      pie_chart: Pie chart
+      gantt_chart: Диаграма на Гант
+      pie_chart: Кръгова диаграма
     code:
       text: Code Sample
       add_code: Add code sample
@@ -313,10 +313,10 @@ ui:
       btn_cancel: Отказ
       btn_confirm: Добавяне
     formula:
-      text: ФОрмула
+      text: Формула
       options:
-        inline: Inline formula
-        block: Block formula
+        inline: Вградена формула
+        block: Блокова формула
     heading:
       text: Заглавие
       options:
@@ -329,49 +329,49 @@ ui:
     help:
       text: Помощ
     hr:
-      text: Horizontal Rule
+      text: Хоризонтална линия
     image:
-      text: Картина
-      add_image: Add image
-      tab_image: Upload image
+      text: Изображение
+      add_image: Добавяне на изображение
+      tab_image: Качване на изображение
       form_image:
         fields:
           file:
             label: Image File
-            btn: Select image
+            btn: Избиране на изображение
             msg:
               empty: File cannot be empty.
               only_image: Only image files are allowed.
               max_size: File size cannot exceed 4MB.
           desc:
             label: Description (optional)
-      tab_url: Image URL
+      tab_url: Адрес на изображение
       form_url:
         fields:
           url:
-            label: Image URL
+            label: Адрес на изображение
             msg:
-              empty: Image URL cannot be empty.
+              empty: Адресът на изображение не може да бъде празен.
           name:
-            label: Description (optional)
+            label: Описание (по избор)
       btn_cancel: Отказ
       btn_confirm: Добавяне
-      uploading: Uploading
+      uploading: Качване...
     indent:
-      text: Indent
+      text: Отстъпление
     outdent:
-      text: Outdent
+      text: Встъпление
     italic:
-      text: Emphasis
+      text: Акцент
     link:
       text: Хипервръзка
       add_link: Добавяне на хипервръзка
       form:
         fields:
           url:
-            label: URL
+            label: Адрес
             msg:
-              empty: URL cannot be empty.
+              empty: Адресът не може да бъде празен.
           name:
             label: Описание (по избор)
       btn_cancel: Отказ
@@ -379,29 +379,29 @@ ui:
     ordered_list:
       text: Нумериран лист
     unordered_list:
-      text: Bulleted List
+      text: Списък с водещи символи
     table:
       text: Таблица
       heading: Заглавие
       cell: Клетка
   close_modal:
-    title: I am closing this post as...
+    title: Затваряне на публикацията като ...
     btn_cancel: Отказ
     btn_submit: Submit
     remark:
-      empty: Cannot be empty.
+      empty: Не може да бъде празно.
     msg:
-      empty: Please select a reason.
+      empty: Причината е задължителна.
   report_modal:
     flag_title: I am flagging to report this post as...
-    close_title: I am closing this post as...
+    close_title: Затваряне на тази публикация като ...
     review_question_title: Review question
     review_answer_title: Review answer
     review_comment_title: Review comment
     btn_cancel: Отказ
     btn_submit: Submit
     remark:
-      empty: Cannot be empty.
+      empty: Задължителна стойност.
     msg:
       empty: Please select a reason.
   tag_modal:
@@ -1318,20 +1318,20 @@ ui:
         label: Footer
         text: This will insert before </html>.
     login:
-      page_title: Login
+      page_title: Вписване
       membership:
         title: Membership
         label: Allow new registrations
         text: Turn off to prevent anyone from creating a new account.
       private:
-        title: Private
+        title: Частно
         label: Login required
         text: Only logged in users can access this community.
 
   form:
     empty: cannot be empty
-    invalid: is invalid
-    btn_submit: Save
+    invalid: е невалидна
+    btn_submit: Запис
     not_found_props: "Required property {{ key }} not found."
   page_review:
     review: Review
@@ -1340,43 +1340,43 @@ ui:
     answer_edit: Answer edit
     tag_edit: Tag edit
     edit_summary: Edit summary
-    edit_question: Edit question
-    edit_answer: Edit answer
-    edit_tag: Edit tag
+    edit_question: Редактиране на въпрос
+    edit_answer: Редактиране на отговор
+    edit_tag: Редактиране на етикет
     empty: No review tasks left.
   timeline:
     undeleted: undeleted
-    deleted: deleted
+    deleted: изтрито
     downvote: downvote
     upvote: upvote
-    accept: accept
-    cancelled: cancelled
-    commented: commented
+    accept: приемане
+    cancelled: отказано
+    commented: коментирано
     rollback: rollback
-    edited: edited
-    answered: answered
-    asked: asked
-    closed: closed
-    reopened: reopened
-    created: created
+    edited: редактирано
+    answered: отговорено
+    asked: попитано
+    closed: затворено
+    reopened: пре-отворено
+    created: създадено
     title: "History for"
     tag_title: "Timeline for"
     show_votes: "Show votes"
-    n_or_a: N/A
+    n_or_a: Н/И
     title_for_question: "Timeline for"
     title_for_answer: "Timeline for answer to {{ title }} by {{ author }}"
     title_for_tag: "Timeline for tag"
     datetime: Datetime
-    type: Type
-    by: By
-    comment: Comment
+    type: Тип
+    by: От
+    comment: Коментар
     no_data: "We couldn't find anything."
   users:
     title: Users
     users_with_the_most_reputation: Users with the highest reputation scores
     users_with_the_most_vote: Users who voted the most
     staffs: Our community staff
-    reputation: reputation
+    reputation: репутация
     votes: votes
 
 
