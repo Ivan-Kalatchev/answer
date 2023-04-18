@@ -92,12 +92,12 @@ backend:
         other: "Недостатъчни права за модификация."
     rank:
       fail_to_meet_the_condition:
-        other: "Rank fail to meet the condition."
+        other: "Недостатъчни права."
     report:
       handle_failed:
         other: "Report handle failed."
       not_found:
-        other: "Report not found."
+        other: "Справката не е намерена."
     tag:
       not_found:
         other: "Етикетът не е намерен."
@@ -116,7 +116,7 @@ backend:
         other: "Темата не е намерена."
     revision:
       review_underway:
-        other: "Can't edit currently, there is a version in the review queue."
+        other: "В момента не може да се редактира, има версия в опашката за преглед."
       no_permission:
         other: "В момента не може да се редактира, има версия в опашката за преглед."
     user:
@@ -237,11 +237,11 @@ ui:
       <ul class="mb-0"><li><p class="mb-2">за създаване на хипервръзки</p><pre
       class="mb-2"><code>&lt;https://url.com&gt;<br/><br/>[Title](https://url.com)</code></pre></li><li><p
       class="mb-2">Абзац</p></li><li><p
-      class="mb-2"><em>_italic_</em> or **<strong>bold</strong>**</p></li><li><p
-      class="mb-2">indent code by 4 spaces</p></li><li><p class="mb-2">quote by
-      placing <code>&gt;</code> at start of line</p></li><li><p
-      class="mb-2">backtick escapes <code>`like _this_`</code></p></li><li><p
-      class="mb-2">create code fences with backticks <code>`</code></p><pre
+      class="mb-2"><em>курсив</em> или **<strong>получер</strong>**</p></li><li><p
+      class="mb-2">отстъп на кода с 4 интервала</p></li><li><p class="mb-2">цитат от
+      поставяне <code>&gt;</code> в началото на реда</p></li><li><p
+      class="mb-2">backtick escapes <code>`като_това`</code></p></li><li><p
+      class="mb-2">създайте кодови огради с обратни отметки <code>`</code></p><pre
       class="mb-0"><code>```<br/>програмен код<br/>```</code></pre></li></ul>
   pagination:
     prev: Предишна
@@ -294,22 +294,22 @@ ui:
       sequence_diagram: Последователна диаграма
       class_diagram: Класова диаграма
       state_diagram: Диаграма на състоянието
-      entity_relationship_diagram: Entity relationship diagram
-      user_defined_diagram: User defined diagram
+      entity_relationship_diagram: Диаграма на връзката на обекта
+      user_defined_diagram: Дефинирана от потребителя диаграма
       gantt_chart: Диаграма на Гант
       pie_chart: Кръгова диаграма
     code:
-      text: Code Sample
-      add_code: Add code sample
+      text: Примерен код
+      add_code: Добевете пример
       form:
         fields:
           code:
-            label: Code
+            label: Код
             msg:
-              empty: Code cannot be empty.
+              empty: "Код" не фигурира.
           language:
             label: Еизк (по избор)
-            placeholder: Automatic detection
+            placeholder: Автоматично
       btn_cancel: Отказ
       btn_confirm: Добавяне
     formula:
@@ -340,11 +340,11 @@ ui:
             label: Image File
             btn: Избиране на изображение
             msg:
-              empty: File cannot be empty.
-              only_image: Only image files are allowed.
-              max_size: File size cannot exceed 4MB.
+              empty: Файлът не може да бъде празен.
+              only_image: Разрешени са само файлове с изображения.
+              max_size: Размерът на файла не може да надвишава 4 MB.
           desc:
-            label: Description (optional)
+            label: Описание (по избор)
       tab_url: Адрес на изображение
       form_url:
         fields:
@@ -387,23 +387,23 @@ ui:
   close_modal:
     title: Затваряне на публикацията като ...
     btn_cancel: Отказ
-    btn_submit: Submit
+    btn_submit: Изпращане
     remark:
       empty: Не може да бъде празно.
     msg:
       empty: Причината е задължителна.
   report_modal:
-    flag_title: I am flagging to report this post as...
+    flag_title: Маркирам, за да докладвам тази публикация като...
     close_title: Затваряне на тази публикация като ...
-    review_question_title: Review question
-    review_answer_title: Review answer
-    review_comment_title: Review comment
+    review_question_title: Преглед на въпрос
+    review_answer_title: Преглед на отговор
+    review_comment_title: Преглед на коментар
     btn_cancel: Отказ
-    btn_submit: Submit
+    btn_submit: Изпращане
     remark:
       empty: Задължителна стойност.
     msg:
-      empty: Please select a reason.
+      empty: Моля изберете причина.
   tag_modal:
     title: Създаване на етикет
     form:
@@ -411,67 +411,67 @@ ui:
         display_name:
           label: Показано име
           msg:
-            empty: Display name cannot be empty.
-            range: Display name up to 35 characters.
+            empty: Показното име не може да бъде празно.
+            range: Показното име може да бъде до 35 символа.
         slug_name:
           label: URL Slug
-          desc: 'Must use the character set "a-z", "0-9", "+ # - ."'
+          desc: 'Трябва да използвате набора от символи "a-z", "0-9", "+ # - ."'
           msg:
-            empty: URL slug cannot be empty.
-            range: URL slug up to 35 characters.
-            character: URL slug contains unallowed character set.
+            empty: URL slug не фигурира.
+            range: URL slug може да бъде до 35 символа.
+            character: URL slug съдържа непозволен набор от символи.
         desc:
           label: Описание (по избор)
     btn_cancel: Отказ
-    btn_submit: Submit
+    btn_submit: Изпращане
   tag_info:
     created_at: Създаден
     edited_at: Редактиран
     history: История
     synonyms:
       title: Синоними
-      text: The following tags will be remapped to
-      empty: No synonyms found.
-      btn_add: Add a synonym
+      text: Следните етикети ще бъдат пренасочени към
+      empty: Няма намерени синоними.
+      btn_add: Добавяне на синоним
       btn_edit: Редакция
       btn_save: Запис
-    synonyms_text: The following tags will be remapped to
+    synonyms_text: Следните етикети ще бъдат пренасочени към
     delete:
       title: Изтриване на етикет
       content: >-
-        <p>We do not allowed deleting tag with posts.</p><p>Please remove this tag
-        from the posts first.</p>
-      content2: Are you sure you wish to delete?
-      close: Close
+        <p>Не разрешаваме изтриване на етикет с публикации.</p><p>Моля, премахнете този етикет
+        първо от постовете.</p>
+      content2: Сигурни ли сте, че искате да изтриете?
+      close: Затваряне
   edit_tag:
     title: Редакция на етикет
     default_reason: Редакция на етикет
     form:
       fields:
         revision:
-          label: Revision
+          label: Ревизия
         display_name:
           label: Показано име
         slug_name:
           label: URL Slug
-          info: 'Must use the character set "a-z", "0-9", "+ # - ."'
+          info: 'Трябва да използвате набора от символи "a-z", "0-9", "+ # - ."'
         desc:
           label: Описание
         edit_summary:
-          label: Edit Summary
+          label: Редакция
           placeholder: >-
-            Briefly explain your changes (corrected spelling, fixed grammar,
-            improved formatting)
+            Обяснете накратко вашите промени (коригиран правопис, фиксирана граматика,
+            подобрено форматиране)
     btn_save_edits: Запис
     btn_cancel: Отказ
   dates:
-    long_date: MMM D
-    long_date_with_year: "MMM D, YYYY"
-    long_date_with_time: "MMM D, YYYY [at] HH:mm"
+    long_date: DD/MM
+    long_date_with_year: "DD/MM/YYYY"
+    long_date_with_time: "DD/MM/YYYY [at] HH:mm"
     now: сега
-    x_seconds_ago: "{{count}}s ago"
-    x_minutes_ago: "{{count}}m ago"
-    x_hours_ago: "{{count}}h ago"
+    x_seconds_ago: "Преди {{count}} секунди"
+    x_minutes_ago: "Преди {{count}} минути"
+    x_hours_ago: "Преди {{count}} часа"
     hour: час
     day: ден
   comment:
