@@ -15,10 +15,12 @@ import {
   Link,
   useNavigate,
   useLocation,
+  useMatch,
 } from 'react-router-dom';
 
 import classnames from 'classnames';
 
+import { floppyNavigation } from '@/utils';
 import {
   loggedUserInfoStore,
   siteInfoStore,
@@ -27,8 +29,6 @@ import {
   themeSettingStore,
 } from '@/stores';
 import { logout, useQueryNotificationStatus } from '@/services';
-import { RouteAlias } from '@/router/alias';
-import { DEFAULT_SITE_NAME } from '@/common/constants';
 
 import NavItems from './components/NavItems';
 
@@ -36,24 +36,51 @@ import './index.scss';
 
 const Header: FC = () => {
   const navigate = useNavigate();
-  const { user, clear } = loggedUserInfoStore();
-  const { t } = useTranslation();
+  const location = useLocation();
   const [urlSearch] = useSearchParams();
   const q = urlSearch.get('q');
+  const { user, clear: clearUserStore } = loggedUserInfoStore();
+  const { t } = useTranslation();
   const [searchStr, setSearch] = useState('');
   const siteInfo = siteInfoStore((state) => state.siteInfo);
   const brandingInfo = brandingStore((state) => state.branding);
   const loginSetting = loginSettingStore((state) => state.login);
   const { data: redDot } = useQueryNotificationStatus();
-  const location = useLocation();
+  const tagMatch = useMatch('/tags/:slugName');
+  let askUrl = '/questions/ask';
+  if (tagMatch && tagMatch.params.slugName) {
+    askUrl = `${askUrl}?tags=${tagMatch.params.slugName}`;
+  }
+
   const handleInput = (val) => {
     setSearch(val);
+  };
+  const handleSearch = (evt) => {
+    evt.preventDefault();
+    if (!searchStr) {
+      return;
+    }
+    const searchUrl = `/search?q=${encodeURIComponent(searchStr)}`;
+    navigate(searchUrl);
   };
 
   const handleLogout = async () => {
     await logout();
-    clear();
-    navigate(RouteAlias.home);
+    clearUserStore();
+    window.location.replace(window.location.href);
+  };
+  const onLoginClick = (evt) => {
+    if (location.pathname === '/users/login') {
+      evt.preventDefault();
+      window.location.reload();
+      return;
+    }
+    if (floppyNavigation.shouldProcessLinkClick(evt)) {
+      evt.preventDefault();
+      floppyNavigation.navigateToLogin((loginPath) => {
+        navigate(loginPath, { replace: true });
+      });
+    }
   };
 
   useEffect(() => {
@@ -72,17 +99,17 @@ const Header: FC = () => {
     }
   }, [location.pathname]);
 
+  let navbarStyle = 'theme-colored';
   const { theme, theme_config } = themeSettingStore((_) => _);
-  let themeType = 'theme-colored';
-  if (theme && theme_config[theme]) {
-    themeType = `theme-${theme_config[theme].navbar_style}`;
+  if (theme_config?.[theme]?.navbar_style) {
+    navbarStyle = `theme-${theme_config[theme].navbar_style}`;
   }
 
   return (
     <Navbar
-      variant={themeType === 'theme-colored' ? 'dark' : ''}
+      variant={navbarStyle === 'theme-colored' ? 'dark' : ''}
       expand="lg"
-      className={classnames('sticky-top', themeType)}
+      className={classnames('sticky-top', navbarStyle)}
       id="header">
       <Container className="d-flex align-items-center">
         <Navbar.Toggle
@@ -108,7 +135,7 @@ const Header: FC = () => {
                 />
               </>
             ) : (
-              <span>{siteInfo.name || DEFAULT_SITE_NAME}</span>
+              <span>{siteInfo.name}</span>
             )}
           </Navbar.Brand>
 
@@ -118,13 +145,20 @@ const Header: FC = () => {
               <NavItems redDot={redDot} userInfo={user} logOut={handleLogout} />
             ) : (
               <>
-                <Button variant="link" className="me-2" href="/users/login">
+                <Button
+                  variant="link"
+                  className={classnames('me-2', {
+                    'link-light': navbarStyle === 'theme-colored',
+                    'link-primary': navbarStyle !== 'theme-colored',
+                  })}
+                  onClick={onLoginClick}
+                  href="/users/login">
                   {t('btns.login')}
                 </Button>
                 {loginSetting.allow_new_registrations && (
                   <Button
                     variant={
-                      themeType === 'theme-colored' ? 'light' : 'primary'
+                      navbarStyle === 'theme-colored' ? 'light' : 'primary'
                     }
                     href="/users/register">
                     {t('btns.signup')}
@@ -153,7 +187,10 @@ const Header: FC = () => {
           <hr className="hr lg-none mt-2" />
 
           <Col lg={4} className="d-flex justify-content-center">
-            <Form action="/search" className="w-75 px-0 px-lg-2">
+            <Form
+              action="/search"
+              className="w-75 px-0 px-lg-2"
+              onSubmit={handleSearch}>
               <FormControl
                 placeholder={t('header.search.placeholder')}
                 className="placeholder-search"
@@ -166,7 +203,7 @@ const Header: FC = () => {
 
           <Nav.Item className="lg-none mt-3 pb-1">
             <Link
-              to="/questions/ask"
+              to={askUrl}
               className="text-capitalize text-nowrap btn btn-light">
               {t('btns.add_question')}
             </Link>
@@ -179,10 +216,10 @@ const Header: FC = () => {
               <Nav className="d-flex align-items-center flex-lg-nowrap">
                 <Nav.Item className="me-3">
                   <Link
-                    to="/questions/ask"
+                    to={askUrl}
                     className={classnames('text-capitalize text-nowrap btn', {
-                      'btn-light': themeType !== 'theme-light',
-                      'btn-primary': themeType === 'theme-light',
+                      'btn-light': navbarStyle !== 'theme-light',
+                      'btn-primary': navbarStyle === 'theme-light',
                     })}>
                     {t('btns.add_question')}
                   </Link>
@@ -199,16 +236,17 @@ const Header: FC = () => {
                 <Button
                   variant="link"
                   className={classnames('me-2', {
-                    'link-light': themeType === 'theme-colored',
-                    'link-primary': themeType !== 'theme-colored',
+                    'link-light': navbarStyle === 'theme-colored',
+                    'link-primary': navbarStyle !== 'theme-colored',
                   })}
+                  onClick={onLoginClick}
                   href="/users/login">
                   {t('btns.login')}
                 </Button>
                 {loginSetting.allow_new_registrations && (
                   <Button
                     variant={
-                      themeType === 'theme-colored' ? 'light' : 'primary'
+                      navbarStyle === 'theme-colored' ? 'light' : 'primary'
                     }
                     href="/users/register">
                     {t('btns.signup')}

@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
-import { Icon, FormatTime, Tag, BaseUserCard } from '@/components';
+import { FormatTime, Tag, BaseUserCard, Counts } from '@/components';
 import { pathFactory } from '@/router/pathFactory';
 
 interface Props {
@@ -18,11 +18,11 @@ const Index: FC<Props> = ({ visible, tabName, data }) => {
   }
 
   return (
-    <ListGroup variant="flush">
+    <ListGroup className="rounded-0">
       {data.map((item) => {
         return (
           <ListGroupItem
-            className="py-3 px-0"
+            className="py-3 px-0 bg-transparent border-start-0 border-end-0"
             key={tabName === 'questions' ? item.question_id : item.id}>
             <h6 className="mb-2">
               <a
@@ -44,35 +44,23 @@ const Index: FC<Props> = ({ visible, tabName, data }) => {
                   <span className="split-dot" />
                 </>
               )}
+
               <FormatTime
-                time={item.create_time}
+                time={
+                  tabName === 'bookmarks' ? item.create_time : item.created_at
+                }
                 className="me-3"
                 preFix={t('asked')}
               />
 
-              <div className="d-flex align-items-center me-3">
-                <Icon name="hand-thumbs-up-fill me-1" />
-                <span>{item.vote_count}</span>
-              </div>
-
-              {tabName !== 'answers' && (
-                <div
-                  className={`d-flex align-items-center me-3 ${
-                    Number(item.accepted_answer_id) > 0 ? 'text-success' : ''
-                  }`}>
-                  {Number(item.accepted_answer_id) > 0 ? (
-                    <Icon name="check-circle-fill me-1" />
-                  ) : (
-                    <Icon name="chat-square-text-fill me-1" />
-                  )}
-                  <span>{item.answer_count}</span>
-                </div>
-              )}
-
-              <div className="d-flex align-items-center me-3">
-                <Icon name="eye-fill me-1" />
-                <span>{item.view_count}</span>
-              </div>
+              <Counts
+                isAccepted={Number(item.accepted_answer_id) > 0}
+                data={{
+                  votes: item.vote_count,
+                  answers: item.answer_count,
+                  views: item.view_count,
+                }}
+              />
             </div>
             <div>
               {item.tags?.map((tag) => {

@@ -3,6 +3,7 @@ package handler
 import (
 	"errors"
 	"net/http"
+	"strings"
 
 	"github.com/answerdev/answer/internal/base/constant"
 	"github.com/answerdev/answer/internal/base/reason"
@@ -52,7 +53,7 @@ func BindAndCheck(ctx *gin.Context, data interface{}) bool {
 		return true
 	}
 
-	errField, err := validator.GetValidatorByLang(lang.Abbr()).Check(data)
+	errField, err := validator.GetValidatorByLang(lang).Check(data)
 	if err != nil {
 		HandleResponse(ctx, err, errField)
 		return true
@@ -70,6 +71,13 @@ func BindAndCheckReturnErr(ctx *gin.Context, data interface{}) (errFields []*val
 		return nil
 	}
 
-	errFields, _ = validator.GetValidatorByLang(lang.Abbr()).Check(data)
+	errFields, _ = validator.GetValidatorByLang(lang).Check(data)
 	return errFields
+}
+
+func MsgWithParameter(msg string, list map[string]string) string {
+	for k, v := range list {
+		msg = strings.Replace(msg, "{{ "+k+" }}", v, -1)
+	}
+	return msg
 }

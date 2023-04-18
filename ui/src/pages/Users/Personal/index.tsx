@@ -11,6 +11,7 @@ import {
   usePersonalTop,
   usePersonalListByTabName,
 } from '@/services';
+import type { UserInfoRes } from '@/common/interface';
 
 import {
   UserInfo,
@@ -47,8 +48,8 @@ const Personal: FC = () => {
     tabName,
   );
   let pageTitle = '';
-  if (userInfo) {
-    pageTitle = `${userInfo.info.display_name} (${userInfo.info.username})`;
+  if (userInfo?.username) {
+    pageTitle = `${userInfo?.display_name} (${userInfo?.username})`;
   }
   const { count = 0, list = [] } = listData?.[tabName] || {};
   usePageTags({
@@ -57,11 +58,11 @@ const Personal: FC = () => {
   return (
     <Container className="pt-4 mt-2 mb-5">
       <Row className="justify-content-center">
-        {userInfo?.info?.status !== 'normal' && userInfo?.info?.status_msg && (
-          <Alert data={userInfo?.info.status_msg} />
+        {userInfo?.status !== 'normal' && userInfo?.status_msg && (
+          <Alert data={userInfo?.status_msg} />
         )}
         <Col xxl={7} lg={8} sm={12}>
-          <UserInfo data={userInfo?.info} />
+          <UserInfo data={userInfo as UserInfoRes} />
         </Col>
         <Col
           xxl={3}
@@ -88,11 +89,11 @@ const Personal: FC = () => {
         <Col xxl={7} lg={8} sm={12}>
           <Overview
             visible={tabName === 'overview'}
-            introduction={userInfo?.info?.bio_html}
+            introduction={userInfo?.bio_html || ''}
             data={topData}
           />
           <ListHead
-            count={tabName === 'reputation' ? userInfo?.info?.rank : count}
+            count={tabName === 'reputation' ? Number(userInfo?.rank) : count}
             sort={order}
             visible={tabName !== 'overview'}
             tabName={tabName}
@@ -109,7 +110,7 @@ const Personal: FC = () => {
           {!list?.length && !isLoading && <Empty />}
 
           {count > 0 && (
-            <div className="d-flex justify-content-center border-top py-4">
+            <div className="d-flex justify-content-center py-4">
               <Pagination
                 pageSize={30}
                 totalSize={count || 0}
@@ -120,18 +121,14 @@ const Personal: FC = () => {
         </Col>
         <Col xxl={3} lg={4} sm={12} className="mt-5 mt-lg-0">
           <h5 className="mb-3">{t('stats')}</h5>
-          {userInfo?.info && (
+          {userInfo?.created_at && (
             <>
-              <FormatTime time={1671290521} preFix={t('last_login')} />
               <div className="text-secondary">
-                <FormatTime
-                  time={userInfo.info.created_at}
-                  preFix={t('joined')}
-                />
+                <FormatTime time={userInfo.created_at} preFix={t('joined')} />
               </div>
               <div className="text-secondary">
                 <FormatTime
-                  time={userInfo.info.last_login_date}
+                  time={userInfo.last_login_date}
                   preFix={t('last_login')}
                 />
               </div>
